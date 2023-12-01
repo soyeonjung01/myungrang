@@ -1,4 +1,8 @@
 import React from 'react'
+import {Routes, Route, Link} from 'react-router-dom'
+
+//pages
+import Product from './Product';
 
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -45,7 +49,12 @@ const Concept = styled.div`
     text-align: center;
     color: #444
   }
-`;
+`
+const Tap = styled.li`
+  font-size: 20px;
+  a {color: #fff}
+`
+
 
 export default function Home() {
   return (
@@ -100,8 +109,19 @@ export default function Home() {
         <Container>
           <Title>OUR PRODUCT</Title>
         </Container>
+        <ul style={{
+           display: 'flex',
+           gap: 50,
+           justifyContent: 'center'
+        }}>
+          <Tap><Link to=''>핫도그</Link></Tap>
+          <Tap><Link to=''>세트메뉴</Link></Tap>
+          <Tap><Link to=''>사이드</Link></Tap>
+        </ul>
+        <Routes>
+          <Route path=':product' element={<Product />} />
+        </Routes>
       </div>
-
       
     </>
   )
