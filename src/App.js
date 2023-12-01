@@ -1,25 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route, Link} from 'react-router-dom'
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
+
+//pages
+import Home from './pages/Home';
+import Concept from './pages/Concept';
+import Menu from './pages/Menu';
+import Event from './pages/Event';
+import Franchisees from './pages/Franchisees';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className='header'>
+        <div className='gnb_box'>
+          <nav className='gnb'>
+            <ul>
+              <li><a href="#!">SITEMAP</a></li>
+              <li><a href="#!">점주공간</a></li>
+              <li><a href="#!">해외문의</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div className='lnb_box'>
+          <div className='logo'>
+            <Link to='/'>
+            <img src={process.env.PUBLIC_URL + '/images/logo/logo.png'} alt="logo_img"/>
+            </Link>
+          </div>
+          <nav className='lnb'>
+            <ul>
+              <li><Link to='concept'>명랑시대</Link></li>
+              <li><Link to='menu'>메뉴</Link></li>
+              <li><Link to='event'>이벤트</Link></li>
+              <li><Link to='franchisees'>가맹안내</Link></li>
+            </ul>
+          </nav>
+        </div>
       </header>
-    </div>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='concept' element={<Concept />}/>
+        <Route path='menu' element={<Menu />}/>
+        <Route path='event' element={<Event />}/>
+        <Route path='franchisees' element={<Franchisees />}/>
+      </Routes>
+    </>
   );
 }
+
 
 export default App;
