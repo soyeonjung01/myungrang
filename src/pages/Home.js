@@ -1,5 +1,7 @@
 import React from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
+import {Tab, Tabs} from 'react-bootstrap/';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //pages
 import Product from './Product';
@@ -50,10 +52,10 @@ const Concept = styled.div`
     color: #444
   }
 `
-const Tap = styled.li`
-  font-size: 20px;
-  a {color: #fff}
-`
+// const Tap = styled.li`
+//   font-size: 20px;
+//   a {color: #fff}
+// `
 
 
 export default function Home() {
@@ -114,9 +116,21 @@ export default function Home() {
            gap: 50,
            justifyContent: 'center'
         }}>
-          <Tap><Link to=''>핫도그</Link></Tap>
-          <Tap><Link to=''>세트메뉴</Link></Tap>
-          <Tap><Link to=''>사이드</Link></Tap>
+      <Tabs
+        defaultActiveKey="profile"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+      >
+        <Tab eventKey="home" title="Home">
+          Tab content for Home
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          Tab content for Profile
+        </Tab>
+        <Tab eventKey="contact" title="Contact">
+          Tab content for Contact
+        </Tab>
+      </Tabs>
         </ul>
         <Routes>
           <Route path=':product' element={<Product />} />
