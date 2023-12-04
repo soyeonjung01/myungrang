@@ -10,7 +10,11 @@ li {list-style: none;}
 img {display: block;}
 
 /*------------------- header -------------------*/
-.header {width: 100%;}
+.header {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
 
 /*-- gnb --*/
 .header .gnb_box {
@@ -69,3 +73,5 @@ img {display: block;}
 }
 
 .swiper-slide img {width: 100%;}
+
+

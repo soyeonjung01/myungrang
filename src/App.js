@@ -1,7 +1,6 @@
 import './App.css';
 import {Routes, Route, Link} from 'react-router-dom'
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
 
 //pages
 import Home from './pages/Home';
@@ -10,6 +9,8 @@ import Menu from './pages/Menu';
 import Event from './pages/Event';
 import Franchisees from './pages/Franchisees';
 
+//styled
+import styled from 'styled-components';
 
 
 function App() {
