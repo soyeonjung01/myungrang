@@ -1,14 +1,16 @@
 import React from 'react';
 import './styled.css';
-import {useState,  useParams} from 'react';
+import {useState} from 'react';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom';
 
 // bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col} from 'react-bootstrap';
 
 // data
 import hotdogdata from './hotdog'
-import Details from './Details';
+import setdata from './set'
+import Details from './Details'
 
 // styled
 import styled from 'styled-components';
@@ -24,23 +26,11 @@ const Tap = styled.ul `
    font-weight: 500
   }
 `
-const Product = styled.div`
-  width: 100%;
-  background-color: #eee;
-  border-radius: 20px;
-  text-align: center
-`
-const Name = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  margin-top : 10px;
-  text-align: center
 
-`
 export default function Menu() {
   const navigate = useNavigate()
   const [hotdogs] = useState(hotdogdata)
-  
+
   return (
     <div className='container'>
       <p className='title'>메뉴</p>
@@ -57,13 +47,11 @@ export default function Menu() {
               {
               hotdogs.map((hotdog, index) => {
                 return (
-                <Col style={{ marginTop: 20 }}>
-                  <Link to={`/details/${index}`}>
-                    <Product>
-                      <img src={hotdog.img} alt="hotdog_img" style={{ width: 500 }} />
-                      <Name>{hotdog.name}</Name>
-                      <p>{hotdog.tag}</p>
-                    </Product>
+                <Col style={{ marginTop: 40 }}>
+                  <Link to={`details/${index}`}>
+                    <img src={hotdog.img} alt="hotdog_img" style={{ width: 500 }} />
+                    <h4>{hotdog.name}</h4>
+                    <p>{hotdog.tag}</p>
                   </Link>
                 </Col>  
                 )
@@ -71,7 +59,7 @@ export default function Menu() {
             </Row>
           </Container>
         } />
-      <Route path='/details/:id' element={<Details hotdogs={hotdogs} />} />       
+      <Route path='details/:id' element={<Details hotdogs={hotdogs} />} />       
     </Routes>
     </div>
   )

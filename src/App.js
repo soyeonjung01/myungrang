@@ -1,18 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import './App.css';
 import {Routes, Route, Link} from 'react-router-dom'
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react';
 
 
 //pages
-import Home from './pages/Home'
-import Concept from './pages/Concept'
-import Menu from './pages/Menu'
-import Event from './pages/Event'
-import Franchisees from './pages/Franchisees'
+import Home from './pages/Home';
+import Concept from './pages/Concept';
+import Menu from './pages/Menu';
+import Event from './pages/Event';
+import Franchisees from './pages/Franchisees';
 
 //styled
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 function App() {
@@ -47,15 +46,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='concept' element={<Concept />}/>
-        <Route path="menu/*" element={<Menu />} />
+        <Route path='menu' element={<Menu />}/>
         <Route path='event' element={<Event />}/>
         <Route path='franchisees' element={<Franchisees />}/>
       </Routes>
-      <footer>
-
-      </footer>
     </>
-    
   );
 }
 
